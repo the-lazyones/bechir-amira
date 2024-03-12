@@ -8,8 +8,8 @@ function each(array,callback){
   }
 }
 $(document).ready(function() {
-   var imageWidth = 270; 
-    var imageHeight = 270;
+   var imageWidth = 400; 
+    var imageHeight = 400;
     $("img").each(function() {
         $(this).attr("width", imageWidth);
         $(this).attr("height", imageHeight);
@@ -20,24 +20,61 @@ $("table img").each(function() {
     $(this).attr("width", imageWidth);
     $(this).attr("height", imageHeight);
 });
+
 $(document).ready(function() {
-   var playerNames=[{ name: "cristiano ronaldo",images: ["./images/cristiano ronaldo-1.png  ","./images/cristiano ronaldo-2.png"]},
-  {name: "son",images: ["./images/son-1.png  ","./images/son-2.png"]},
-{name: "kavin de bruyne",images: ["./images/kavin de bruyne-1.png  ","./images/kavin de bruyne-2.png"]}]
 
+  var playerNames = ["cristiano ronaldo", "son", "kavin de bruyne"];
+var num=playerNames.length*2
+$('#score').text('Your score: ' + score); 
 
+  function showNextImage(index) {
+    if (index < 6) {
+      $('img').hide();
+      $('img').eq(index).show();
+      $('#guessinput').val(""); 
+    } else {
+      
+      $('#guessinput').hide();
+      $('img').hide();
+      $('#checkbutton').hide();
+      $('#result').text('Game Over.');
+      $('#score').text('Your score: ' + score); 
+
+    }
+  }
+
+  
+  var currentIndex = 0;
+  var next = 0;
+  var score = 0;
+
+  showNextImage(currentIndex);
+
+  
+  $('#checkbutton').on('click', function() {
+    var guess = $('#guessinput').val();
+    var playerName = playerNames[currentIndex];
+    if (guess.toLowerCase() === playerName.toLowerCase()) {
+      $('#result').text('Congratulations! You guessed it right.');
+      currentIndex++;
+      score++; 
+      $('#score').text('Your score: ' + score);
+      next++;
+    showNextImage(next);
+    } else {
+      $('#result').text('Oops! Wrong guess. Try again.');
+      $('#guessinput').val("");
+    }
     
-   $('#checkbutton').on('click', function() {
-      var guess = $('#guessinput').val();
-      if (guess.toLowerCase() === playerName.toLowerCase()) {
-
-        $('#result').text('Congratulations! You guessed it right.');
-      } else {
-        $('#result').text('Oops! Wrong guess. Try again.');
-      }
-    });
   });
+
+  
+  $('#next').on('click', function() {
+    next++;
+    showNextImage(next);
+  });
+});
   
  $('div').css('margin',170)
-$('p').css('text-shadow', 2, 2, 5 ,red)
+ $('p').css('text-shadow', 2, 2, 5 ,red)
  
