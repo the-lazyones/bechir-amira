@@ -3,7 +3,7 @@ $('h1').css('font-style','italic')
 $('p').css('font-style','italic')
 $('h1').css('text-align', 'center')
 function each(array,callback){
-  for(var i=0;i<arrray.length;i++){
+  for(var i=0;i<array.length;i++){
       callback(array[i],i)
   }
 }

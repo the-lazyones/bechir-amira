@@ -1,0 +1,22 @@
+p {
+    text-shadow: 2px 2px 5px rgb(215, 239, 53);
+  }
+  p {
+    font-size: 150%;
+  }
+  h1 {
+    text-shadow: 0 0 3px #ebee32, 0 0 5px #0000ff
+  }
+  body {
+    color:rgb(202, 228, 57);
+  }
+
+    body {
+      background-image: url('https://www.sportsdigita.com/wp-content/uploads/2019/03/ezlightsgif.com-video-to-gif-6.gif');
+      background-attachment: fixe;
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+      background-position: center;
+      align-items: center
+    }
